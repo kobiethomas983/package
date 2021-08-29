@@ -1,0 +1,8 @@
+package com.example.demo.repository;
+
+import com.example.demo.model.Dataset;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface DatasetRepository extends JpaRepository<Dataset, Long> {
+    Dataset findByDatasetId(String datasetId);
+}

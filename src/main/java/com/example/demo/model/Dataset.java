@@ -10,6 +10,7 @@ import java.sql.Timestamp;
 @Table(name = "ps_dataset", schema = "public")
 public class Dataset {
 
+    public Dataset() {}
     @Id
     @GeneratedValue
     private long id;

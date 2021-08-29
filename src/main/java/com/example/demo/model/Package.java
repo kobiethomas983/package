@@ -28,7 +28,7 @@ public class Package {
     @Column(name = "created_at")
     private Timestamp createdAt;
 
-    @Column(name = "modififed_at")
+    @Column(name = "modified_at")
     private Timestamp modifiedAt;
 
 }
