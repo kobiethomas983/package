@@ -32,9 +32,6 @@ public class DatasetService {
         Dataset foundDataset = datasetRepository
                 .findByDatasetId(datasetId);
 
-        if (foundDataset == null) {
-            throw new DataNotFoundException("Dataset doesn't exist with datasetId: " + datasetId);
-        }
         datasetRepository.delete(foundDataset);
     }
 
@@ -49,7 +46,7 @@ public class DatasetService {
     }
 
     public List<Dataset> getDatasetByPackageId(String packageId) {
-        return datasetRepository.findDatasetsByPackage(packageId);
+        return datasetRepository.findDatasetsByPackageId(packageId);
     }
 
 }

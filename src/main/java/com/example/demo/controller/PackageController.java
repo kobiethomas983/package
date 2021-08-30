@@ -72,8 +72,8 @@ public class PackageController {
         return packageService.getPackageByCountry(country);
     }
 
-    @GetMapping("/package/datasets/{package}")
-    public List<Dataset> getDatasetsMappedToPackage(@PathVariable("package") String packageId) {
+    @GetMapping("/package/datasets/{packageId}")
+    public List<Dataset> getDatasetsMappedToPackage(@PathVariable("packageId") String packageId) {
         return datasetService.getDatasetByPackageId(packageId);
     }
 }

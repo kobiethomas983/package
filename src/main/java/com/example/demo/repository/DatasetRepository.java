@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface DatasetRepository extends JpaRepository<Dataset, Long> {
     Dataset findByDatasetId(String datasetId);
-    List<Dataset> findDatasetsByPackage(String packageId);
+    List<Dataset> findDatasetsByPackageId(String packageId);
 }
