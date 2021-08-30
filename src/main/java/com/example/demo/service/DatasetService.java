@@ -48,4 +48,8 @@ public class DatasetService {
         return datasetRepository.findByDatasetId(datasetId);
     }
 
+    public List<Dataset> getDatasetByPackageId(String packageId) {
+        return datasetRepository.findDatasetsByPackage(packageId);
+    }
+
 }

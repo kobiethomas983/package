@@ -40,4 +40,12 @@ public class PackageService {
         }
         return foundPackage;
     }
+
+    public List<Package> getPackageByCategory(String category) {
+        return packageRepository.findPackageByCategory(category);
+    }
+
+    public List<Package> getPackageByCountry(String country) {
+        return packageRepository.findPackageByCountry(country);
+    }
 }

@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.model.Dataset;
 import com.example.demo.model.Package;
+import com.example.demo.service.DatasetService;
 import com.example.demo.service.PackageService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -16,10 +17,13 @@ import java.util.List;
 @Api(value = "Package Controller", description = "Package Service API", tags = "Package")
 public class PackageController {
     private final PackageService packageService;
+    private final DatasetService datasetService;
 
     @Autowired
-    public PackageController(PackageService packageService) {
+    public PackageController(PackageService packageService,
+                             DatasetService datasetService) {
         this.packageService = packageService;
+        this.datasetService = datasetService;
     }
 
     @PostMapping("/package")
@@ -58,4 +62,18 @@ public class PackageController {
         return packageService.getPackageById(packageId);
     }
 
+    @GetMapping("/package/{category}")
+    public List<Package> getPackageByCategory(@PathVariable("category") String category) {
+        return packageService.getPackageByCategory(category);
+    }
+
+    @GetMapping("/package/{country}")
+    public List<Package> getPackageByCountry(@PathVariable("country") String country) {
+        return packageService.getPackageByCountry(country);
+    }
+
+    @GetMapping("/package/datasets/{package}")
+    public List<Dataset> getDatasetsMappedToPackage(@PathVariable("package") String packageId) {
+        return datasetService.getDatasetByPackageId(packageId);
+    }
 }
