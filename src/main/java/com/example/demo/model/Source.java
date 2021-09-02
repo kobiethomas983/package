@@ -7,16 +7,16 @@ import java.sql.Timestamp;
 
 @Data
 @Entity
-@Table(name = "ps_resource", schema = "public")
-public class Resource {
-    public Resource(){}
+@Table(name = "ps_source", schema = "public")
+public class Source {
+    public Source(){}
 
     @Id
     @GeneratedValue
     private long id;
 
-    @Column(name = "resource_id")
-    private String resourceId;
+    @Column(name = "source_id")
+    private String sourceId;
 
     @Column(name = "dataset_id")
     private String datasetId;

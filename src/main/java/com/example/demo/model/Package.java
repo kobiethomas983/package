@@ -22,8 +22,8 @@ public class Package {
     private String description;
     private String country;
 
-    @Column(name= "owner_id")
-    private String ownerId;
+    @Column(name= "company_id")
+    private String companyId;
 
     @Column(name = "created_at")
     private Timestamp createdAt;

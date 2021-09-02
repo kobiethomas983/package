@@ -18,8 +18,8 @@ public class Dataset {
     @Column(name = "dataset_id")
     private String datasetId;
 
-    @Column(name = "owner_id")
-    private String ownerId;
+    @Column(name = "company_id")
+    private String companyId;
 
     private String description;
     private String name;
