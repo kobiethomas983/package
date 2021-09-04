@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS ps_source (
         FOREIGN KEY(dataset_id)
             REFERENCES ps_dataset(dataset_id)
 );
-CREATE SEQUENCE hibernate_sequence START 1;
+CREATE SEQUENCE hibernate_sequence START 20;
 
 INSERT INTO ps_package(id, package_id, name, category, description, country, company_id, created_at, modified_at)
 VALUES(1, 'Pk122A', 'Clyde-Inventory', 'Financial', 'Data on Clyde inventory', 'USA', 'Co1234', NOW(), NOW());
