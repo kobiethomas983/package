@@ -9,12 +9,14 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @Api(value = "Package Controller", description = "Package Service API", tags = "Package")
+@Validated
 public class PackageController {
     private final PackageService packageService;
     private final DatasetService datasetService;
@@ -26,13 +28,13 @@ public class PackageController {
         this.datasetService = datasetService;
     }
 
-    @PostMapping("/package")
+    @PostMapping("/packages")
     @ApiOperation(value = "Add a Package", nickname = "savePackage", tags = "Add Methods")
     public Package createPackage(@RequestBody Package newPackage) {
         return packageService.createPackage(newPackage);
     }
 
-    @GetMapping("/package")
+    @GetMapping("/packages")
     @ApiOperation(value = "Get a list of Packages", nickname = "findPackages", response = Package.class, responseContainer = "List", tags = "Get Methods")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Success"),
@@ -44,13 +46,13 @@ public class PackageController {
         return packageService.getAll();
     }
 
-    @DeleteMapping("/package/{packageId}")
+    @DeleteMapping("/packages/{packageId}")
     @ApiOperation(value = "Delete datasets by id", nickname = "deleteDatasetById", tags = "Delete Methods")
     public void deletePackageById(String packageId) {
         packageService.deletePackageById(packageId);
     }
 
-    @GetMapping("/package/{packageId}")
+    @GetMapping("/packages/{packageId}")
     @ApiOperation(value = "Get Packages by ids", nickname = "findPackageById", tags = "Get Methods")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Success"),
@@ -62,17 +64,17 @@ public class PackageController {
         return packageService.getPackageById(packageId);
     }
 
-    @GetMapping("/package/{category}")
+    @GetMapping("/packages/category/{category}")
     public List<Package> getPackageByCategory(@PathVariable("category") String category) {
         return packageService.getPackageByCategory(category);
     }
 
-    @GetMapping("/package/{country}")
+    @GetMapping("/packages/country/{country}")
     public List<Package> getPackageByCountry(@PathVariable("country") String country) {
         return packageService.getPackageByCountry(country);
     }
 
-    @GetMapping("/package/datasets/{packageId}")
+    @GetMapping("/packages/{packageId}/datasets")
     public List<Dataset> getDatasetsMappedToPackage(@PathVariable("packageId") String packageId) {
         return datasetService.getDatasetByPackageId(packageId);
     }

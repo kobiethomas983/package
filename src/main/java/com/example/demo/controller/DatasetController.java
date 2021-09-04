@@ -22,13 +22,13 @@ public class DatasetController {
         this.datasetService = datasetService;
     }
 
-    @PostMapping("/dataset")
+    @PostMapping("/datasets")
     @ApiOperation(value = "Add a Dataset", nickname = "saveDataset", tags = "Add Methods")
     public Dataset createDataset(@RequestBody Dataset dataset) {
         return datasetService.createDataset(dataset);
     }
 
-    @GetMapping("/dataset")
+    @GetMapping("/datasets")
     @ApiOperation(value = "Get a list of Datasets", nickname = "findDatasets", response = Dataset.class, responseContainer = "List", tags = "Get Methods")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Success"),
@@ -40,7 +40,7 @@ public class DatasetController {
         return datasetService.getAll();
     }
 
-    @GetMapping("/dataset/{datasetId}")
+    @GetMapping("/datasets/{datasetId}")
     @ApiOperation(value = "Get Datasets by ids", nickname = "findDatasetById", tags = "Get Methods")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Success"),
@@ -52,7 +52,7 @@ public class DatasetController {
         return datasetService.getDatasetById(datasetId);
     }
 
-    @DeleteMapping("/dataset/{datasetId}")
+    @DeleteMapping("/datasets/{datasetId}")
     @ApiOperation(value = "Delete datasets by id", nickname = "deleteDatasetById", tags = "Delete Methods")
     public void deleteDatasetByDatasetId(@PathVariable("datasetId") String datasetId) {
         datasetService.deleteDatasetById(datasetId);
